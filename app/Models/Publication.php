@@ -40,4 +40,13 @@ class Publication extends Model
             ->withPivot('rol')
             ->withTimestamps();
     }
+
+    /**
+     * Get the authors for the publication.
+     */
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class, 'autores_publicaciones', 'publicacion_id', 'autor_id')
+            ->withTimestamps();
+    }
 }
