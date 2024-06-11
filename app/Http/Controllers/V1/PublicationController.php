@@ -26,7 +26,7 @@ class PublicationController extends Controller
             'issn_tipo' => 'required|in:IMPRESO,ELECTRONICO,AMBOS',
             'issn_impreso' => 'required_if:issn_tipo,IMPRESO|nullable|size:8|unique:publicaciones,issn_impreso,'.$publication->id,
             'issn_electronico' => 'required_if:issn_tipo,ELECTRONICO|nullable|size:8|unique:publicaciones,issn_electronico,'.$publication->id,
-            'doi' => 'required|string|unique:publicaciones,doi',
+            'doi' => 'required|string|unique:publicaciones,doi,'.$publication->id,
             'nombre_revista' => 'required|string',
             'titulo' => 'required|string',
             'anio_publicacion' => 'required|integer',

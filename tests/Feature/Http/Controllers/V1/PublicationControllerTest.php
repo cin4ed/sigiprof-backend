@@ -49,3 +49,30 @@ test('el usuario puede actualizar una publicacion', function () {
 
     $response->assertOk();
 });
+
+it('allows to update a publication with the same doi', function () {
+    $user = User::factory()->create();
+
+    $publication = Publication::factory()->create();
+
+    $response = $this->actingAs($user)->putJson("/api/v1/publications/{$publication->id}", [
+        'issn_tipo' => 'IMPRESO',
+        'issn_impreso' => '12345678',
+        'issn_electronico' => null,
+        'doi' => $publication->doi,
+        'nombre_revista' => 'Revista de Prueba',
+        'titulo' => 'Título de prueba',
+        'anio_publicacion' => 2021,
+        'recibio_apoyo_conahcyt' => true,
+        'programa_conahcyt' => 'FONDO_INSTITUCIONAL',
+        'estatus' => 'PUBLICADO',
+        'objetivo' => 'INVESTIGACION',
+        'url_cita' => 'https://example.com',
+        'cita_a' => 1,
+        'cita_b' => 2,
+        'total_citas' => 3,
+        'eje_conahcyt' => 'DESARROLLO_TECNOLOGIAS',
+    ]);
+
+    $response->assertOk();
+});
