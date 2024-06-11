@@ -17,6 +17,7 @@ class AuthorFactory extends Factory
     public function definition(): array
     {
         return [
+            'nombre' => $this->faker->firstName,
             'primer_apellido' => $this->faker->lastName,
             'segundo_apellido' => $this->faker->lastName,
             'orc_id' => $this->faker->regexify('[A-Za-z0-9]{16}'),

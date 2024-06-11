@@ -20,6 +20,7 @@ it('allows authors to be added to a publication', function () {
     $publication = $user->publications()->create(Publication::factory()->make()->toArray());
 
     $response = $this->actingAs($user)->post("api/v1/publications/{$publication->id}/authors", [
+        'nombre' => 'John',
         'primer_apellido' => 'Doe',
         'segundo_apellido' => 'Smith',
         'orc_id' => '0000000000000000',
@@ -27,6 +28,7 @@ it('allows authors to be added to a publication', function () {
 
     $response->assertStatus(201);
     $response->assertJson([
+        'nombre' => 'John',
         'primer_apellido' => 'Doe',
         'segundo_apellido' => 'Smith',
         'orc_id' => '0000000000000000',

@@ -34,6 +34,7 @@ class PublicationAuthorsController extends Controller
     public function store(Publication $publication, Request $request)
     {
         $validated = $request->validate([
+            'nombre' => 'required|string',
             'primer_apellido' => 'required|string',
             'segundo_apellido' => 'required|string',
             'orc_id' => 'required|string|size:16',
