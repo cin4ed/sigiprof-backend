@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function authenticate(Request $request)
+    public function __invoke(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
