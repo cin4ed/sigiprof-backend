@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
-            $table->stirng('isbn', 13)->unique();
+            $table->string('isbn', 13)->unique();
             $table->string('doi')->unique();
             $table->string('titulo');
             $table->integer('anio_publicacion');
