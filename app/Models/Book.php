@@ -28,4 +28,14 @@ class Book extends Model
         'total_citas',
         'estado_publicacion',
     ];
+
+    /**
+     * Get the users for the book.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'libros_usuarios', 'libro_id', 'usuario_id')
+            ->withPivot('rol')
+            ->withTimestamps();
+    }
 }
