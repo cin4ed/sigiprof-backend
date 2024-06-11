@@ -6,7 +6,7 @@ use App\Helpers\ConahcytProgramas;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Publicacion>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Publication>
  */
 class PublicationFactory extends Factory
 {
