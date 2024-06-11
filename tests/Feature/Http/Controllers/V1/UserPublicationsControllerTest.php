@@ -6,7 +6,7 @@ use App\Models\User;
 
 test('el usuario puede crear una publicacion', function () {
     $publication = [
-        'issn_tipo' => 'impreso',
+        'issn_tipo' => 'IMPRESO',
         'issn_impreso' => '12345678',
         'issn_electronico' => null,
         'doi' => '10.1234/abc',

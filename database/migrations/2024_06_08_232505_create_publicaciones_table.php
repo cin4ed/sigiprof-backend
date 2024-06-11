@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('publicaciones', function (Blueprint $table) {
             $table->id();
-            $table->enum('issn_tipo', ['impreso', 'electrónico', 'ambos']);
+            $table->enum('issn_tipo', ['IMPRESO', 'ELECTRONICO', 'AMBOS']);
             $table->char('issn_impreso', 8)->unique()->nullable();
             $table->char('issn_electronico', 8)->unique()->nullable();
             $table->string('doi')->unique();

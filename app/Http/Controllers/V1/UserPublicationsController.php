@@ -17,9 +17,9 @@ class UserPublicationsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'issn_tipo' => 'required|in:impreso,electrónico,ambos',
-            'issn_impreso' => 'required_if:issn_tipo,impreso|nullable|size:8|unique:publicaciones,issn_impreso',
-            'issn_electronico' => 'required_if:issn_tipo,electrónico|nullable|size:8|unique:publicaciones,issn_electronico',
+            'issn_tipo' => 'required|in:IMPRESO,ELECTRONICO,AMBOS',
+            'issn_impreso' => 'required_if:issn_tipo,IMPRESO|nullable|size:8|unique:publicaciones,issn_impreso',
+            'issn_electronico' => 'required_if:issn_tipo,ELECTRONICO|nullable|size:8|unique:publicaciones,issn_electronico',
             'doi' => 'required|string|unique:publicaciones,doi',
             'nombre_revista' => 'required|string',
             'titulo' => 'required|string',

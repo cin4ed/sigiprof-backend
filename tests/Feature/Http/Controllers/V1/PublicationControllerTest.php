@@ -29,7 +29,7 @@ test('el usuario puede actualizar una publicacion', function () {
     $publication = Publication::factory()->create();
 
     $response = $this->actingAs($user)->putJson("/api/v1/publications/{$publication->id}", [
-        'issn_tipo' => 'impreso',
+        'issn_tipo' => 'IMPRESO',
         'issn_impreso' => '12345678',
         'issn_electronico' => null,
         'doi' => '10.1234/abc',

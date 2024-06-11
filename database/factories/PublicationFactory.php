@@ -18,7 +18,7 @@ class PublicationFactory extends Factory
     public function definition(): array
     {
         return [
-            'issn_tipo' => $this->faker->randomElement(['impreso', 'electrónico', 'ambos']),
+            'issn_tipo' => $this->faker->randomElement(['IMPRESO', 'ELECTRONICO', 'AMBOS']),
             'issn_impreso' => $this->faker->optional()->regexify('[0-9]{8}'),
             'issn_electronico' => $this->faker->optional()->regexify('[0-9]{8}'),
             'doi' => $this->faker->regexify('[A-Za-z0-9]{10}'),
