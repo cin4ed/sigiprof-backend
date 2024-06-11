@@ -76,3 +76,57 @@ it('allows to update a publication with the same doi', function () {
 
     $response->assertOk();
 });
+
+it('requires a conahcyt program if the publication received support', function () {
+    $user = User::factory()->create();
+
+    $publication = Publication::factory()->create();
+
+    $response = $this->actingAs($user)->putJson("/api/v1/publications/{$publication->id}", [
+        'issn_tipo' => 'IMPRESO',
+        'issn_impreso' => '12345678',
+        'issn_electronico' => null,
+        'doi' => '10.1234/abc',
+        'nombre_revista' => 'Revista de Prueba',
+        'titulo' => 'Título de prueba',
+        'anio_publicacion' => 2021,
+        'recibio_apoyo_conahcyt' => true,
+        'programa_conahcyt' => null,
+        'estatus' => 'PUBLICADO',
+        'objetivo' => 'INVESTIGACION',
+        'url_cita' => 'https://example.com',
+        'cita_a' => 1,
+        'cita_b' => 2,
+        'total_citas' => 3,
+        'eje_conahcyt' => 'DESARROLLO_TECNOLOGIAS',
+    ]);
+
+    $response->assertStatus(422);
+});
+
+it('doesn\'t requires a conahcyt program if the publication didn\'t receive support', function () {
+    $user = User::factory()->create();
+
+    $publication = Publication::factory()->create();
+
+    $response = $this->actingAs($user)->putJson("/api/v1/publications/{$publication->id}", [
+        'issn_tipo' => 'IMPRESO',
+        'issn_impreso' => '12345678',
+        'issn_electronico' => null,
+        'doi' => '10.1234/abc',
+        'nombre_revista' => 'Revista de Prueba',
+        'titulo' => 'Título de prueba',
+        'anio_publicacion' => 2021,
+        'recibio_apoyo_conahcyt' => false,
+        'programa_conahcyt' => null,
+        'estatus' => 'PUBLICADO',
+        'objetivo' => 'INVESTIGACION',
+        'url_cita' => 'https://example.com',
+        'cita_a' => 1,
+        'cita_b' => 2,
+        'total_citas' => 3,
+        'eje_conahcyt' => 'DESARROLLO_TECNOLOGIAS',
+    ]);
+
+    $response->assertOk();
+});

@@ -29,7 +29,7 @@ return new class extends Migration
             $table->integer('cita_b');
             $table->integer('total_citas');
             $table->enum('eje_conahcyt', ['DESARROLLO_TECNOLOGIAS', 'DIFUSION_CIENCIA', 'FORTALECIMIENTO_COMUNIDAD', 'IMPULSO_FRONTERAS', 'INCIDENCIA_PROBLEMATICAS']);
-            $table->enum('programa_conahcyt', ConahcytProgramas::all());
+            $table->enum('programa_conahcyt', ConahcytProgramas::all())->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
