@@ -58,4 +58,14 @@ class User extends Authenticatable
             ->withPivot('rol')
             ->withTimestamps();
     }
+
+    /**
+     * Get the books for the user.
+     */
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'libros_usuarios', 'usuario_id', 'libro_id')
+            ->withPivot('rol')
+            ->withTimestamps();
+    }
 }
