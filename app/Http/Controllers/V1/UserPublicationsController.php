@@ -4,16 +4,35 @@ namespace App\Http\Controllers\V1;
 
 use App\Helpers\ConahcytProgramas;
 use App\Http\Controllers\Controller;
+use App\Models\Publication;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+/**
+ * @tags User
+ */
 class UserPublicationsController extends Controller
 {
+    /**
+     * Get all publications for current user
+     *
+     * This endpoint retrieves all publications that are associated with the
+     * authenticated user.
+     *
+     * @return Publication[] A list of publications
+     */
     public function index()
     {
         return auth()->user()->publications;
     }
 
+    /**
+     * Create a new publication for current user
+     *
+     * This endpoint creates a new publication for the authenticated user.
+     *
+     * @return Publication The created publication
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
