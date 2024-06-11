@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
 use App\Models\Publication;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
@@ -31,6 +32,10 @@ class DatabaseSeeder extends Seeder
         $token->tokenable_type = User::class;
         $token->save();
 
-        Publication::factory(10)->create();
+        // Create 10 publications for the user
+        $admin->publications()->saveMany(Publication::factory(10)->make());
+
+        // Create 10 courses for the user
+        $admin->courses()->saveMany(Course::factory(10)->make());
     }
 }
