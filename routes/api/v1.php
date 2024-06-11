@@ -15,6 +15,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/publications/{publication}', [\App\Http\Controllers\V1\PublicationController::class, 'show']);
     Route::put('/publications/{publication}', [\App\Http\Controllers\V1\PublicationController::class, 'update']);
     Route::delete('/publications/{publication}', [\App\Http\Controllers\V1\PublicationController::class, 'destroy']);
+    Route::get('publications/{publication}/authors', [\App\Http\Controllers\V1\PublicationAuthorsController::class, 'index']);
+    Route::post('publications/{publication}/authors', [\App\Http\Controllers\V1\PublicationAuthorsController::class, 'store']);
 });
 
 // /login
