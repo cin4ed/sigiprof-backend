@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 /**
- * @tags User
+ * @tags Publications
  */
 class UserPublicationsController extends Controller
 {

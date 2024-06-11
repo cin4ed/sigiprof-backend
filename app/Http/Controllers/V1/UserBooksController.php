@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 /**
- * @tags Book
+ * @tags Books
  */
 class UserBooksController extends Controller
 {

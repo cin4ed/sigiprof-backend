@@ -8,18 +8,42 @@ use App\Models\Publication;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+/**
+ * @tags Publications
+ */
 class PublicationController extends Controller
 {
+    /**
+     * Get all publications
+     *
+     * This endpoint retrieves all publications.
+     *
+     * @return Publication[] A list of publications
+     */
     public function index()
     {
         return Publication::all();
     }
 
+    /**
+     * Create a new publication
+     *
+     * This endpoint creates a new publication.
+     *
+     * @return Publication The created publication
+     */
     public function show(Publication $publication)
     {
         return $publication;
     }
 
+    /**
+     * Create a new publication
+     *
+     * This endpoint creates a new publication.
+     *
+     * @return Publication The created publication
+     */
     public function update(Publication $publication, Request $request)
     {
         $validated = $request->validate([
@@ -46,6 +70,13 @@ class PublicationController extends Controller
         return $publication;
     }
 
+    /**
+     * Delete a publication
+     *
+     * This endpoint deletes a publication.
+     *
+     * @return void
+     */
     public function destroy(Publication $publication)
     {
         $publication->delete();
