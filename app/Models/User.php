@@ -68,4 +68,12 @@ class User extends Authenticatable
             ->withPivot('rol')
             ->withTimestamps();
     }
+
+    /**
+     * Get the courses for the user.
+     */
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'usuario_id');
+    }
 }

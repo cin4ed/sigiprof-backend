@@ -21,4 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get(     '/user/books', [\App\Http\Controllers\V1\UserBooksController::class, 'index']);
     Route::post(    '/user/books', [\App\Http\Controllers\V1\UserBooksController::class, 'store']);
+
+    Route::get(     '/user/courses', [\App\Http\Controllers\V1\UserCoursesController::class, 'index']);
+    Route::post(    '/user/courses', [\App\Http\Controllers\V1\UserCoursesController::class, 'store']);
 });

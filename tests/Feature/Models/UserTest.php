@@ -24,3 +24,13 @@ it('can create a book for a user', function () {
     expect($user->publications->first()->id)->toBe($book->id);
     expect($user->publications->first()->pivot->rol)->toBe('AUTOR');
 });
+
+it('can create a course for a user', function () {
+    $course = Publication::factory()->create();
+    $user = User::factory()->create();
+
+    $user->publications()->attach($course, ['rol' => 'AUTOR']);
+
+    expect($user->publications->first()->id)->toBe($course->id);
+    expect($user->publications->first()->pivot->rol)->toBe('AUTOR');
+});
