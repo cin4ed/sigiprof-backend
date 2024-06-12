@@ -29,6 +29,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/books', [\App\Http\Controllers\V1\UserBooksController::class, 'index']);
     Route::post('/user/books', [\App\Http\Controllers\V1\UserBooksController::class, 'store']);
 
+    Route::get('/books', [\App\Http\Controllers\V1\BookController::class, 'index']);
+    Route::get('/books/{book}', [\App\Http\Controllers\V1\BookController::class, 'show']);
+    Route::put('/books/{book}', [\App\Http\Controllers\V1\BookController::class, 'update']);
+    Route::delete('/books/{book}', [\App\Http\Controllers\V1\BookController::class, 'destroy']);
+
     // Courses
 
     Route::get('/user/courses', [\App\Http\Controllers\V1\UserCoursesController::class, 'index']);
