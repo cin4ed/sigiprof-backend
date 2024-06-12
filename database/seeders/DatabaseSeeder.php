@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Book;
 use App\Models\Course;
-use App\Models\Publication;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Publication;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -37,5 +38,8 @@ class DatabaseSeeder extends Seeder
 
         // Create 10 courses for the user
         $admin->courses()->saveMany(Course::factory(10)->make());
+
+        // Create 10 books for the user
+        $admin->books()->saveMany(Book::factory(10)->make());
     }
 }
