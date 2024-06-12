@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('horas_totales');
             $table->string('institucion');
             $table->enum('tipo_institucion', ['EXTRANJERA', 'NACIONAL']);
-            $table->enum('modalidad_institucion', ['PUBLICA_FEDERAl', 'PUBLICA_ESTATAL', 'PUBLICA_MUNICIPAL', 'PRIVADA']);
+            $table->enum('modalidad_institucion', ['PUBLICA_FEDERAL', 'PUBLICA_ESTATAL', 'PUBLICA_MUNICIPAL', 'PRIVADA']);
             $table->text('descripcion');
             $table->foreignId('usuario_id')->constrained('usuarios')->cascadeOnDelete();
             $table->timestamps();
