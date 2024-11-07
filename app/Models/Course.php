@@ -19,8 +19,6 @@ class Course extends Model
         'horas_totales',
         'institucion',
         'tipo_institucion',
-        'modalidad_institucion',
-        'descripcion',
     ];
 
     /**

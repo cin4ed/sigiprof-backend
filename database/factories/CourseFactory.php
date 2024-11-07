@@ -23,8 +23,6 @@ class CourseFactory extends Factory
             'horas_totales' => $this->faker->numberBetween(1, 100),
             'institucion' => $this->faker->sentence(3),
             'tipo_institucion' => $this->faker->randomElement(['EXTRANJERA', 'NACIONAL']),
-            'modalidad_institucion' => $this->faker->randomElement(['PUBLICA_FEDERAL', 'PUBLICA_ESTATAL', 'PUBLICA_MUNICIPAL', 'PRIVADA']),
-            'descripcion' => $this->faker->paragraph(),
         ];
     }
 }
