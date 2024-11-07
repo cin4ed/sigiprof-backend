@@ -20,15 +20,7 @@ class Publication extends Model
         'nombre_revista',
         'titulo',
         'anio_publicacion',
-        'recibio_apoyo_conahcyt',
         'estatus',
-        'objetivo',
-        'url_cita',
-        'cita_a',
-        'cita_b',
-        'total_citas',
-        'eje_conahcyt',
-        'programa_conahcyt',
     ];
 
     /**

@@ -54,15 +54,7 @@ class PublicationController extends Controller
             'nombre_revista' => 'required|string',
             'titulo' => 'required|string',
             'anio_publicacion' => 'required|integer',
-            'recibio_apoyo_conahcyt' => 'required|boolean',
             'estatus' => 'required|in:PUBLICADO,ACEPTADO',
-            'objetivo' => 'required|in:INVESTIGACION,TRABAJO_DIFUSION,LIBROS_DOCENCIA',
-            'url_cita' => 'required|url',
-            'cita_a' => 'required|integer',
-            'cita_b' => 'required|integer',
-            'total_citas' => 'required|integer',
-            'eje_conahcyt' => 'required|in:DESARROLLO_TECNOLOGIAS,DIFUSION_CIENCIA,FORTALECIMIENTO_COMUNIDAD,IMPULSO_FRONTERAS,INCIDENCIA_PROBLEMATICAS',
-            'programa_conahcyt' => ['required_if:recibio_apoyo_conahcyt,true', 'nullable', Rule::in(ConahcytProgramas::all())],
         ]);
 
         $publication->update($validated);

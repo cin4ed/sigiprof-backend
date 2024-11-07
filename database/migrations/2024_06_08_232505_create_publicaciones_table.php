@@ -21,15 +21,7 @@ return new class extends Migration
             $table->string('nombre_revista');
             $table->string('titulo');
             $table->integer('anio_publicacion');
-            $table->boolean('recibio_apoyo_conahcyt');
             $table->enum('estatus', ['PUBLICADO', 'ACEPTADO']);
-            $table->enum('objetivo', ['INVESTIGACION', 'TRABAJO_DIFUSION', 'LIBROS_DOCENCIA']);
-            $table->string('url_cita');
-            $table->integer('cita_a');
-            $table->integer('cita_b');
-            $table->integer('total_citas');
-            $table->enum('eje_conahcyt', ['DESARROLLO_TECNOLOGIAS', 'DIFUSION_CIENCIA', 'FORTALECIMIENTO_COMUNIDAD', 'IMPULSO_FRONTERAS', 'INCIDENCIA_PROBLEMATICAS']);
-            $table->enum('programa_conahcyt', ConahcytProgramas::all())->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
