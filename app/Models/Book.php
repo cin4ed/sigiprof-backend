@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'libros';
 
@@ -19,13 +20,6 @@ class Book extends Model
         'editorial',
         'pais',
         'idioma',
-        'recibio_apoyo_conahcyt',
-        'programa_conahcyt',
-        'esta_dictaminado',
-        'url_cita',
-        'cita_a',
-        'cita_b',
-        'total_citas',
         'estado_publicacion',
     ];
 

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Helpers\ConahcytProgramas;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

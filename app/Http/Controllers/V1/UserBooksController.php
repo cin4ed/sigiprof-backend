@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\V1;
 
-use App\Helpers\ConahcytProgramas;
 use App\Helpers\LibroEstados;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
@@ -43,14 +42,6 @@ class UserBooksController extends Controller
             'editorial' => 'required|string',
             'pais' => 'required|string',
             'idioma' => 'required|string',
-            'recibio_apoyo_conahcyt' => 'required|boolean',
-            'programa_conahcyt' => ['required_if:recibio_apoyo_conahcyt,true', 'nullable', Rule::in(ConahcytProgramas::all())],
-            'esta_dictaminado' => 'required|boolean',
-            'url_cita' => 'required|url',
-            'cita_a' => 'required|integer',
-            'cita_b' => 'required|integer',
-            'total_citas' => 'required|integer',
-            'eje_conahcyt' => 'required|in:DESARROLLO_TECNOLOGIAS,DIFUSION_CIENCIA,FORTALECIMIENTO_COMUNIDAD,IMPULSO_FRONTERAS,INCIDENCIA_PROBLEMATICAS',
             'estado_publicacion' => ['required', Rule::in(LibroEstados::all())],
         ]);
 

@@ -1,6 +1,5 @@
 <?php
 
-use App\Helpers\ConahcytProgramas;
 use App\Helpers\LibroEstados;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -22,13 +21,6 @@ return new class extends Migration
             $table->string('editorial');
             $table->string('pais');
             $table->string('idioma');
-            $table->boolean('recibio_apoyo_conahcyt');
-            $table->enum('programa_conahcyt', ConahcytProgramas::all())->nullable();
-            $table->boolean('esta_dictaminado');
-            $table->string('url_cita');
-            $table->integer('cita_a');
-            $table->integer('cita_b');
-            $table->integer('total_citas');
             $table->enum('estado_publicacion', LibroEstados::all());
             $table->timestamps();
             $table->softDeletes();

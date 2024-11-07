@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Http\Controllers\V1;
 
-use App\Models\User;
 use App\Models\Publication;
+use App\Models\User;
 
 test('el usuario puede crear una publicación con todos los datos válidos', function () {
     $publication = [
