@@ -32,4 +32,14 @@ class Book extends Model
             ->withPivot('rol')
             ->withTimestamps();
     }
+
+    /**
+     * Get the authors of the book.
+     */
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class, 'autores_libros', 'libro_id', 'autor_id')
+        ->withPivot('orden')
+        ->withTimestamps();
+    }
 }

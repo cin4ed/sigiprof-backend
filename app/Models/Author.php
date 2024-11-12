@@ -27,4 +27,14 @@ class Author extends Model
         return $this->belongsToMany(Publication::class, 'autores_publicaciones', 'autor_id', 'publicacion_id')
             ->withTimestamps();
     }
+
+    /**
+     * Get the books for the author.
+     */
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'autores_libros', 'autor_id', 'libro_id')
+            ->withPivot('orden')
+            ->withTimestamps();
+    }
 }

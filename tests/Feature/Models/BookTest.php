@@ -4,6 +4,7 @@ namespace Tests\Feature\Models;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Models\Author;
 
 it('can create a book', function () {
     $book = Book::factory()->create();
@@ -16,13 +17,6 @@ it('can create a book', function () {
     expect($book->editorial)->toBeString();
     expect($book->pais)->toBeString();
     expect($book->idioma)->toBeString();
-    expect($book->recibio_apoyo_conahcyt)->toBeBool();
-    expect($book->programa_conahcyt)->toBeString();
-    expect($book->esta_dictaminado)->toBeBool();
-    expect($book->url_cita)->toBeString();
-    expect($book->cita_a)->toBeInt();
-    expect($book->cita_b)->toBeInt();
-    expect($book->total_citas)->toBeInt();
     expect($book->estado_publicacion)->toBeString();
 });
 
@@ -34,4 +28,17 @@ it('can create a book for a user', function () {
 
     expect($book->users->first()->id)->toBe($user->id);
     expect($book->users->first()->pivot->rol)->toBe('AUTOR');
+});
+
+it('permite asociar multiples autores a un libro', function () {
+    $book = Book::factory()->create();
+    $authors = Author::factory()->count(3)->create();
+
+    $syncData = $authors->mapWithKeys(function ($author, $index) {
+        return [$author->id => ['orden' => $index + 1]];
+    })->toArray();
+
+    $book->authors()->sync($syncData);
+
+    expect($book->authors)->toHaveCount(3);
 });

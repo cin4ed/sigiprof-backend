@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\LibroEstados;
+use App\Helpers\LibroUsuarioRoles;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('editorial');
             $table->string('pais');
             $table->string('idioma');
+            $table->enum('rol_usuario_creador', LibroUsuarioRoles::all());
             $table->enum('estado_publicacion', LibroEstados::all());
             $table->timestamps();
             $table->softDeletes();

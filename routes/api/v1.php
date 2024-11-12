@@ -9,6 +9,8 @@ Route::get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
 
+    Route::get('user/stats', [\App\Http\Controllers\V1\UserStatsController::class, 'index']);
+
     // Publications
 
     Route::get('/user/publications', [\App\Http\Controllers\V1\UserPublicationsController::class, 'index']);

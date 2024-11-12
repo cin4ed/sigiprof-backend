@@ -7,18 +7,27 @@ class LibroUsuarioRoles
     public static function all(): array
     {
         return [
+            'ASESOR_PRINCIPAL',
             'AUTOR',
-            'COAUTOR',
-            'AYUDANTE',
-            'ENCARGADO',
-            'SUPERVISADO',
-            'EDITOR',
-            'REVISOR',
+            'AUTOR_PARA_CORRESPONDENCIA',
+            'AUTOR_PRINCIPAL',
+            'AUTOR_UNICO',
+            'AUTOR_DE_CORRESPONDENCIA',
+            'CO_AUTOR',
+            'CO_COORDINADOR',
+            'CO_INVENTOR',
             'COLABORADOR',
-            'ASESOR',
-            'INVESTIGADOR_PRINCIPAL',
+            'COMPIADOR',
             'COORDINADOR',
             'DIRECTOR',
+            'DIRECTOR_Y_O_ASESOR_PRINCIPAL',
+            'EDITOR',
+            'ESTUDIANTE_AUTOR_PRINCIPAL',
+            'INVENTOR',
+            'LIDER',
+            'PARTICIPANTE',
+            'TECNICO',
+            'TRADUCTOR'
         ];
     }
 }

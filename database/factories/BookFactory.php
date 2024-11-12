@@ -24,6 +24,7 @@ class BookFactory extends Factory
             'editorial' => $this->faker->company(),
             'pais' => $this->faker->country(),
             'idioma' => $this->faker->languageCode(),
+            'rol_usuario_creador' => $this->faker->randomElement(\App\Helpers\LibroUsuarioRoles::all()),
             'estado_publicacion' => $this->faker->randomElement(\App\Helpers\LibroEstados::all()),
         ];
     }
